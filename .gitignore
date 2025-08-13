@@ -1,39 +1,21 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# node / expo
 node_modules/
-
-# Expo
 .expo/
+.expo-shared/
 dist/
 web-build/
-expo-env.d.ts
+.cache/
+*.log
 
-# Native
-.kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
-
-# Metro
-.metro-health-check*
-
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-
-# macOS
+# OS junk
 .DS_Store
-*.pem
+Thumbs.db
 
-# local env files
-.env*.local
+# builds / artifacts
+build/
+*.keystore
+*.jks
 
-# typescript
-*.tsbuildinfo
-
-app-example
+# If you're using *managed* Expo, keep these ignored:
+android/
+ios/
