@@ -5,10 +5,8 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "automatic",
-
+    "userInterfaceStyle": "light",
     "scheme": "studentitbuddy",
-
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -21,25 +19,47 @@
 
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.studentitbuddy" 
+      "bundleIdentifier": "com.navid.studentitbuddy",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Allow Student IT Buddy to attach photos and videos to your posts.",
+        "NSCameraUsageDescription": "Allow camera access to capture media for your posts.",
+        "NSLocationWhenInUseUsageDescription": "Show your location on posts."
+      },
+      "associatedDomains": [
+        "applinks:studentitbuddy.app"   // <-- change to your domain if you enable universal links
+      ]
     },
+
     "android": {
-      "package": "com.yourname.studentitbuddy",
+      "package": "com.navid.studentitbuddy",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "READ_MEDIA_IMAGES",
+        "READ_MEDIA_VIDEO"
+      ],
       "intentFilters": [
         {
           "action": "VIEW",
+          "data": [
+            { "scheme": "https", "host": "studentitbuddy.app", "pathPrefix": "/" }
+          ],
           "category": ["BROWSABLE", "DEFAULT"],
-          "data": [{ "scheme": "studentitbuddy" }]
+          "autoVerify": true
         }
       ]
     },
+
     "web": {
       "favicon": "./assets/favicon.png"
     },
+
+    "plugins": [
+      "expo-router"
+    ],
 
     "extra": {
       "EXPO_PUBLIC_API_BASE": "https://YOUR-SUBDOMAIN.vercel.app/api"
